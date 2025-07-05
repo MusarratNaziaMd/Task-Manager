@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <h2>Welcome,{{user.username}}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="New Task">
+        <button type="submit">Add new task</button>
+    </form>
+    <ul>
+        {% for task in manager %}
+          <li>{{task.title}}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'logout'%}">logout</a>
+    
+</body>
+</html>

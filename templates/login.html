@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="enter your userame" required><br><br>
+        <input type="password" name="password" placeholder="enter your password" required><br><br>
+        <button type="submit">login</button>
+    </form>
+    {% if result %}
+       <h2 style="color:red;">{{result}}</h2>
+    {% endif %}
+    <p>Don't have account
+    <a href="{% url 'register' %}">Register</a>
+    </p>
+</body>
+</html>
